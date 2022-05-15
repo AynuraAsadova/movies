@@ -16,13 +16,13 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3002/movies/")
+      .get("https://my-json-server.typicode.com/aynuraasadova/movies/")
       .then((response) => setMovies(response.data));
   }, []);
 
   // delete movie
   const deleteMovie = (movie) => {
-    axios.delete(`http://localhost:3002/movies/${movie.id}`);
+    axios.delete(`https://my-json-server.typicode.com/aynuraasadova/movies/${movie.id}`);
     const newMovieList = movies.filter((m) => m.id !== movie.id);
     setMovies(newMovieList);
   };
@@ -34,7 +34,7 @@ const App = () => {
 
   // add movie
   const addMovie = (name, rating, imageURL, overview) => {
-    axios.post(`http://localhost:3002/movies`, {
+    axios.post(`https://my-json-server.typicode.com/aynuraasadova/movies`, {
       name,
       rating,
       imageURL,
@@ -47,7 +47,7 @@ const App = () => {
 
   // edit movie
   const editMovie = (id, updateMovie) => {
-    axios.put(`http://localhost:3002/movies/${id}`, updateMovie);
+    axios.put(`https://my-json-server.typicode.com/aynuraasadova/movies/${id}`, updateMovie);
   };
 
   const filteredMovies = movies.filter((movie) => {

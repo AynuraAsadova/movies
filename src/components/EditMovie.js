@@ -12,7 +12,7 @@ const EditMovie = (props) => {
   const [overview, setOverview] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:3002/movies/${id}`).then((response) => {
+    axios.get(`https://my-json-server.typicode.com/aynuraasadova/movies/${id}`).then((response) => {
       setName(response.data.name);
       setRating(response.data.rating);
       setImageURL(response.data.imageURL);
