@@ -11,18 +11,14 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    axios
-      .get("https://my-json-server.typicode.com/aynuraasadova/movies/movies")
-      .then(({ data }) => {
-        setMovies(data);
-      });
+    axios.get("/movies").then(({ data }) => {
+      setMovies(data);
+    });
   }, []);
 
   // delete movie
   const deleteMovie = (movie) => {
-    axios.delete(
-      `https://my-json-server.typicode.com/aynuraasadova/movies/movies/${movie.id}`
-    );
+    axios.delete(`/movies/${movie.id}`);
     const newMovieList = movies.filter((m) => m.id !== movie.id);
     setMovies(newMovieList);
   };
@@ -41,14 +37,9 @@ const App = () => {
       overview,
     };
 
-    axios
-      .post(
-        `https://my-json-server.typicode.com/aynuraasadova/movies/movies`,
-        movie
-      )
-      .then(({ data }) => {
-        setMovies((previous) => [...previous, data]);
-      });
+    axios.post(`/movies`, movie).then(({ data }) => {
+      setMovies((previous) => [...previous, data]);
+    });
   };
 
   const filteredMovies = movies.filter((movie) => {
