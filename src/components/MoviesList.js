@@ -48,7 +48,7 @@ const MoviesList = (props) => {
             </div>
           </div>
         </div>
-      ))}
+      )).sort((a,b) => {return a.id < b.id ? 1 : -1})}
     </div>
   );
 };

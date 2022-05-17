@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 // import serialize from "form-serialize";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AddMovie = (props) => {
   const navigate = useNavigate();
-  let { id } = useParams();
 
   const [name, setName] = useState("");
   const [rating, setRating] = useState("");
@@ -15,8 +14,8 @@ const AddMovie = (props) => {
     e.preventDefault();
 
     // const newMovie = serialize(e.target, { hash: true });
-    console.log(id, name, rating, imageURL, overview);
-    props.addMovie(id, name, rating, imageURL, overview);
+    console.log(name, rating, imageURL, overview);
+    props.addMovie(name, rating, imageURL, overview);
     navigate("/");
   };
 

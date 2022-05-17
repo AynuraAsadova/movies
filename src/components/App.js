@@ -10,19 +10,19 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const sortedMovies = movies.sort((a, b) => {
-    return a.id < b.id ? 1 : -1;
-  });
-
   useEffect(() => {
     axios
-      .get("https://my-json-server.typicode.com/aynuraasadova/movies/")
-      .then((response) => setMovies(response.data));
+      .get("https://my-json-server.typicode.com/aynuraasadova/movies/movies")
+      .then(({ data }) => {
+        setMovies(data);
+      });
   }, []);
 
   // delete movie
   const deleteMovie = (movie) => {
-    axios.delete(`https://my-json-server.typicode.com/aynuraasadova/movies/${movie.id}`);
+    axios.delete(
+      `https://my-json-server.typicode.com/aynuraasadova/movies/movies/${movie.id}`
+    );
     const newMovieList = movies.filter((m) => m.id !== movie.id);
     setMovies(newMovieList);
   };
@@ -34,20 +34,21 @@ const App = () => {
 
   // add movie
   const addMovie = (name, rating, imageURL, overview) => {
-    axios.post(`https://my-json-server.typicode.com/aynuraasadova/movies`, {
+    const movie = {
       name,
       rating,
       imageURL,
       overview,
-    });
+    };
 
-    const addMovie = [...movies, { name, rating, imageURL, overview }];
-    setMovies(addMovie);
-  };
-
-  // edit movie
-  const editMovie = (id, updateMovie) => {
-    axios.put(`https://my-json-server.typicode.com/aynuraasadova/movies/${id}`, updateMovie);
+    axios
+      .post(
+        `https://my-json-server.typicode.com/aynuraasadova/movies/movies`,
+        movie
+      )
+      .then(({ data }) => {
+        setMovies((previous) => [...previous, data]);
+      });
   };
 
   const filteredMovies = movies.filter((movie) => {
@@ -69,20 +70,16 @@ const App = () => {
                   </div>
                 </div>
 
-                <MoviesList
-                  movies={filteredMovies}
-                  deleteMovie={deleteMovie}
-                  sortedMovies={sortedMovies}
-                />
+                <MoviesList movies={filteredMovies} deleteMovie={deleteMovie} />
               </React.Fragment>
             }
           ></Route>
 
-          <Route path='/add' element={<AddMovie addMovie={addMovie} />} />
+          <Route path='add' element={<AddMovie addMovie={addMovie} />} />
 
           <Route
-            path='/edit/:id'
-            element={<EditMovie editMovie={editMovie} />}
+            path='edit/:id'
+            element={<EditMovie setMovies={setMovies} />}
           />
         </Routes>
       </div>

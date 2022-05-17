@@ -22,7 +22,7 @@
       "id": 9
     },
     {
-      "name": "The Queen's Gambit",
+      "name": "The Queen's Gambit 2",
       "rating": "8.6",
       "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zU0htwkhNvBQdVSIKB9s6hgVeFK.jpg",
       "overview": "In a Kentucky orphanage in the 1950s, a young girl discovers an astonishing talent for chess while struggling with addiction.",
@@ -31,9 +31,37 @@
     {
       "name": "Peaky Blinders",
       "rating": "8.6",
-      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg",
       "overview": "A gangster family epic set in 1919 Birmingham, England and centered on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby, who means to move up in the world.",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg",
       "id": 11
+    },
+    {
+      "name": "Breaking Bad",
+      "rating": "7.6",
+      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
+      "overview": "best tv series ever after kurtlar vadisi",
+      "id": 12
+    },
+    {
+      "name": "Kurtlar Vadisi",
+      "rating": "7.7",
+      "imageURL": "https://upload.wikimedia.org/wikipedia/tr/3/3a/Kurtlar_Vadisi_Pusu_Logosu.png",
+      "overview": "Best TV Series ever",
+      "id": 13
+    },
+    {
+      "name": "Asmali Konak",
+      "rating": "5",
+      "imageURL": "https://m.media-amazon.com/images/M/MV5BYjhiN2ViZGMtYTE2YS00NzRlLTkwNGQtMjlmMDk5NzQ2MjVjXkEyXkFqcGdeQXVyNDQ2MTMzODA@._V1_FMjpg_UX1000_.jpg",
+      "overview": "Mans TV series",
+      "id": 14
+    },
+    {
+      "name": "55555",
+      "rating": "4",
+      "imageURL": "vhgvg",
+      "overview": "jhbjhb",
+      "id": 15
     }
   ]
 }

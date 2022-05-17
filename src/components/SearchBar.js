@@ -7,6 +7,7 @@ const SearchBar = ({searchMovieProp}) => {
         e.preventDefault();
         
     }
+    
 
 
     return (

@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const EditMovie = (props) => {
+const EditMovie = ({ setMovies }) => {
   let { id } = useParams();
   const navigate = useNavigate();
 
@@ -12,7 +12,7 @@ const EditMovie = (props) => {
   const [overview, setOverview] = useState("");
 
   useEffect(() => {
-    axios.get(`https://my-json-server.typicode.com/aynuraasadova/movies/${id}`).then((response) => {
+    axios.get(`https://my-json-server.typicode.com/aynuraasadova/movies/movies/${id}`).then((response) => {
       setName(response.data.name);
       setRating(response.data.rating);
       setImageURL(response.data.imageURL);
@@ -23,9 +23,16 @@ const EditMovie = (props) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const updateMovie = { name, rating, overview, imageURL };
-    props.editMovie(id, updateMovie);
-    navigate("/");
+    const movie = { name, rating, imageURL, overview };
+
+    axios.put(`https://my-json-server.typicode.com/aynuraasadova/movies/movies/${id}`, movie).then(({ data }) => {
+      setMovies((prev) => {
+        const index = prev?.findIndex((m) => m.id === id);
+        prev.splice(index, 1, data);
+        return [...prev.slice(0, index), data, ...prev.slice(index + 1)];
+      });
+      navigate("/");
+    });
   };
 
   return (
