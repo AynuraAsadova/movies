@@ -5,6 +5,7 @@ import MoviesList from "./MoviesList";
 import AddMovie from "./AddMovie";
 import EditMovie from "./EditMovie";
 import axios from "axios";
+import { filter } from "lodash";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -42,7 +43,7 @@ const App = () => {
     });
   };
 
-  const filteredMovies = movies.filter((movie) => {
+  const filteredMovies = filter(movies, (movie) => {
     return movie.name?.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
   });
 
