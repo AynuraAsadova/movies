@@ -13,7 +13,7 @@ const SearchBar = ({searchMovieProp}) => {
     return (
         <form onSubmit={handleFormSubmit}>
             <div className='row mb-5'>
-                <div className='col-10'>
+                <div className='col-lg-10 col-sm-9'>
                     <input type='text' 
                     
                     onChange={searchMovieProp} 
@@ -22,8 +22,8 @@ const SearchBar = ({searchMovieProp}) => {
                     />
 
                 </div>
-                <div className='col-2'>
-                    <Link to="/movies/add" type='button' className='btn btn-md btn-danger' style={{float: 'right'}}>Add Movie</Link>
+                <div className='col-lg-2 col-sm-3 mt-sm-0 mt-2'>
+                    <Link to="/movies/add" type='button' className='btn btn-md btn-danger w-100'>Add Movie</Link>
                 </div>
             </div>
         </form>

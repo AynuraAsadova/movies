@@ -13,10 +13,10 @@ const MoviesList = (props) => {
   };
 
   return (
-    <div className='row'>
+    <div className='row mb-5'>
       {props.movies.map((movie, i) => (
-        <div className='col-lg-4' key={i}>
-          <div className='card mb-4 shadow-sm'>
+        <div className='col-sm-6 col-md-4 mb-4' key={i}>
+          <div className='card shadow-sm h-100'>
             <img
               src={movie.imageURL}
               alt='Sample img'
