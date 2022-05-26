@@ -23,7 +23,7 @@ const SearchBar = ({searchMovieProp}) => {
 
                 </div>
                 <div className='col-2'>
-                    <Link to="/add" type='button' className='btn btn-md btn-danger' style={{float: 'right'}}>Add Movie</Link>
+                    <Link to="/movies/add" type='button' className='btn btn-md btn-danger' style={{float: 'right'}}>Add Movie</Link>
                 </div>
             </div>
         </form>

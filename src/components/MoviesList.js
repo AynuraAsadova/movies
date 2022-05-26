@@ -36,7 +36,7 @@ const MoviesList = (props) => {
                   Delete
                 </button>
                 <Link
-                  to={`/edit/${movie.id}`}
+                  to={`/movies/edit/${movie.id}`}
                   className='btn btn-outline-primary'
                 >
                   Edit

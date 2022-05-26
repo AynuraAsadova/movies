@@ -12,14 +12,14 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    axios.get("/movies").then(({ data }) => {
+    axios.get("https://my-json-server.typicode.com/aynuraasadova/movies/movies").then(({ data }) => {
       setMovies(data);
     });
   }, []);
 
   // delete movie
   const deleteMovie = (movie) => {
-    axios.delete(`/movies/${movie.id}`);
+    axios.delete(`https://my-json-server.typicode.com/aynuraasadova/movies/movies/${movie.id}`);
     const newMovieList = movies.filter((m) => m.id !== movie.id);
     setMovies(newMovieList);
   };
@@ -38,7 +38,7 @@ const App = () => {
       overview,
     };
 
-    axios.post(`/movies`, movie).then(({ data }) => {
+    axios.post(`https://my-json-server.typicode.com/aynuraasadova/movies/movies`, movie).then(({ data }) => {
       setMovies((previous) => [...previous, data]);
     });
   };
@@ -52,7 +52,7 @@ const App = () => {
       <div className='container' style={{ maxWidth: "960px" }}>
         <Routes>
           <Route
-            path='/'
+            path='/movies/'
             exact
             element={
               <React.Fragment>
@@ -67,10 +67,10 @@ const App = () => {
             }
           ></Route>
 
-          <Route path='add' element={<AddMovie addMovie={addMovie} />} />
+          <Route path='movies/add' element={<AddMovie addMovie={addMovie} />} />
 
           <Route
-            path='edit/:id'
+            path='movies/edit/:id'
             element={<EditMovie setMovies={setMovies} />}
           />
         </Routes>

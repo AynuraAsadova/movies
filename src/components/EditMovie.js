@@ -12,7 +12,7 @@ const EditMovie = ({ setMovies }) => {
   const [overview, setOverview] = useState("");
 
   useEffect(() => {
-    axios.get(`/movies/${id}`).then((response) => {
+    axios.get(`https://my-json-server.typicode.com/aynuraasadova/movies/movies/${id}`).then((response) => {
       setName(response.data.name);
       setRating(response.data.rating);
       setImageURL(response.data.imageURL);
@@ -25,13 +25,13 @@ const EditMovie = ({ setMovies }) => {
 
     const movie = { name, rating, imageURL, overview };
 
-    axios.put(`/movies/${id}`, movie).then(({ data }) => {
+    axios.put(`https://my-json-server.typicode.com/aynuraasadova/movies/movies/${id}`, movie).then(({ data }) => {
       setMovies((prev) => {
         const index = prev?.findIndex((m) => m.id === id);
         prev.splice(index, 1, data);
         return [...prev.slice(0, index), data, ...prev.slice(index + 1)];
       });
-      navigate("/");
+      navigate("/movies/");
     });
   };
 

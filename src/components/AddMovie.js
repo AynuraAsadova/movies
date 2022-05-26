@@ -16,7 +16,7 @@ const AddMovie = (props) => {
     // const newMovie = serialize(e.target, { hash: true });
     console.log(name, rating, imageURL, overview);
     props.addMovie(name, rating, imageURL, overview);
-    navigate("/");
+    navigate("/movies/");
   };
 
   return (
